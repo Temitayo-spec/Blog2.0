@@ -11,6 +11,7 @@ const query = groq`
     categories[]->
   } | order(_createdAt desc)
 `;
+export const revalidate = 60;
 
 const HomePage = async () => {
   if (previewData()) {
