@@ -22,12 +22,11 @@ export const revalidate = 60;
 
 export async function getStaticParams() {
   const query = groq`*[_type == "post"]{
-        slug
-    }`;
+    slug
+  }`;
+
   const slugs: Post[] = await client.fetch(query);
-  const slugPaths = slugs.map((slug) => ({
-    slug: slug,
-  }));
+  const slugPaths = slugs.map((slug) => slug.slug.current);
   return slugPaths.map((slug) => ({ slug }));
 }
 
