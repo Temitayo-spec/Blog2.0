@@ -1,13 +1,18 @@
-import ".././styles/globals.css"
+import { Banner, Header } from '../../components';
+import '../../styles/globals.css';
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <Banner />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
